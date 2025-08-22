@@ -1,1 +1,1 @@
-mock.txt filter=lfs diff=lfs merge=lfs -text
+model/framework/code/python-chebifier/data/chebi_v241/smiles_lookup.json filter=lfs diff=lfs merge=lfs -text

@@ -1,6 +1,6 @@
 python: "3.10"
 commands:
-    - git clone and install git@github.com:ChEB-AI/python-chebifier.git
+    - 'export PYTHONPATH="${PYTHONPATH}:$(pwd)/model/framework/code/python-chebifier"'
     - "pip install git+https://github.com/ChEB-AI/python-chebai-graph.git"
     - "pip install git+https://github.com/ChEB-AI/chemlog-extra.git"
     - "pip install torch-geometric torch-scatter torch-sparse torch-cluster torch-spline-conv -f https://data.pyg.org/whl/torch-${TORCH}+cu118.html"

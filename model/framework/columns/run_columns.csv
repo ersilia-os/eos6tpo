@@ -1,1 +1,2 @@
 name,type,direction,description
+chebi_predicted_parents,str,None,Semicolon-separated ChEBI predicted parents

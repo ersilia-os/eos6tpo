@@ -2,6 +2,8 @@
 import os
 import csv
 import sys
+import json
+import subprocess
 from rdkit import Chem
 from rdkit.Chem.Descriptors import MolWt
 
@@ -12,28 +14,30 @@ output_file = sys.argv[2]
 # current file directory
 root = os.path.dirname(os.path.abspath(__file__))
 
-# my model
-def my_model(smiles_list):
-    return [MolWt(Chem.MolFromSmiles(smi)) for smi in smiles_list]
-
-
-# read SMILES from .csv file, assuming one column with header
-with open(input_file, "r") as f:
-    reader = csv.reader(f)
-    next(reader)  # skip header
-    smiles_list = [r[0] for r in reader]
 
 # run model
-outputs = my_model(smiles_list)
+cmd = [
+        sys.executable, "-m", "chebifier", "predict",
+        "--smiles-file", os.path.join(root, "..", input_file),
+        "--output", os.path.join(root, "..", output_file.replace(".csv", ".json")),
+        "--ensemble-config", os.path.join(root, "..", "..", "checkpoints", "ensemble_config.yml"),
+    ]
+subprocess.run(cmd, check=True, cwd=os.path.join(root, "python-chebifier"))
 
-#check input and output have the same lenght
-input_len = len(smiles_list)
-output_len = len(outputs)
-assert input_len == output_len
+# read input smiles from .csv file
+smiles = [i.strip() for i in open(os.path.join(root, "..", input_file), "r").readlines()[1:]]
+
+# read json output
+output = json.load(open(os.path.join(root, "..", output_file.replace(".csv", ".json"))))
+output_content = ['chebi_predicted_parents']
+for smi in smiles:
+    r = ["CHEBI:" + o for o in sorted(output[smi])]
+    r = ";".join(r)
+    output_content.append(r)
+
+# remove json output
+os.remove(os.path.join(root, "..", output_file.replace(".csv", ".json")))
 
 # write output in a .csv file
-with open(output_file, "w") as f:
-    writer = csv.writer(f)
-    writer.writerow(["value"])  # header
-    for o in outputs:
-        writer.writerow([o])
+with open(os.path.join(root, "..", output_file), "w") as f:
+    f.write("\n".join(output_content))

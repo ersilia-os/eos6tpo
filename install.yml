@@ -1,8 +1,11 @@
 python: "3.10"
 commands:
-    - 'export PYTHONPATH="${PYTHONPATH}:$(pwd)/model/framework/code/python-chebifier"'
-    - "pip install git+https://github.com/ChEB-AI/python-chebai-graph.git"
-    - "pip install git+https://github.com/ChEB-AI/chemlog-extra.git"
-    - "pip install torch-geometric torch-scatter torch-sparse torch-cluster torch-spline-conv -f https://data.pyg.org/whl/torch-${TORCH}+cu118.html"
-    - "pip install c3p"
-    
+    - ["pip", "torch", "2.8.0"]
+    - ["pip", "git+https://github.com/ChEB-AI/python-chebai-graph.git"]
+    - ["pip", "git+https://github.com/ChEB-AI/chemlog-extra.git"]
+    - ["pip", "torch-geometric", "2.6.1", "-f", "https://data.pyg.org/whl/torch-2.8.0+cu128.html"]
+    - ["pip", "torch-scatter", "2.1.2+pt28cu128", "-f", "https://data.pyg.org/whl/torch-2.8.0+cu128.html"]
+    - ["pip", "torch-sparse", "0.6.18+pt28cu128", "-f", "https://data.pyg.org/whl/torch-2.8.0+cu128.html"]
+    - ["pip", "torch-cluster", "1.6.3+pt28cu128", "-f", "https://data.pyg.org/whl/torch-2.8.0+cu128.html"]
+    - ["pip", "torch-spline-conv", "1.2.2+pt28cu128", "-f", "https://data.pyg.org/whl/torch-2.8.0+cu128.html"]
+    - ["pip", "c3p", "0.5.0"]

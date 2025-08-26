@@ -7,36 +7,25 @@ Description: Automated classification of chemicals in the ChEBI ontology based o
   system.
 Deployment:
 - Local
-- Online
-Source: Local, Online
-Source Type: Internal, Replicated, External
-Task: Annotation, Representation, Sampling
-Subtask: Property calculation or prediction, Activity prediction, Featurization, Projection,
-  Similarity search, Generation
+Source: Local
+Source Type: External
+Task: Annotation
+Subtask: Activity prediction
 Input:
 - Compound
 Input Dimension: 1
 Output:
-- Value
-- Score
-- Compound
-- Probability
-- Experimental value
-- '...'
+- Text
 Output Dimension: 1
-Output Consistency: Fixed, Variable
-Interpretation: 'The output of this template model should be interpreted like this.
-
-  '
+Output Consistency: Fixed
+Interpretation: 'The output corresponds to a list of semicolon-separated ChEBI predicted parents'
 Tag:
 - Chemical notation
 Biomedical Area:
-- Biomedical Area 1
-- Biomedical Area 2
+- Any
 Target Organism:
-- Target Organism 1
-- Target Organism 2
-Publication Type: Peer reviewed, Preprint, Other
+- Any
+Publication Type: Peer reviewed
 Publication Year: 2025
 Publication: https://pubs.rsc.org/en/content/articlehtml/2024/dd/d3dd00238a
 Source Code: https://github.com/ChEB-AI/python-chebifier

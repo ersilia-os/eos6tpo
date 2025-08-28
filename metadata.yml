@@ -1,6 +1,6 @@
 Identifier: eos6tpo
 Slug: chebifier
-Status: In progress
+Status: Ready
 Title: Neuro-Symbolic AI for Automated Chemical Classification in the ChEBI 
   Ontology
 Description: Automated classification of chemical entities within the ChEBI 
@@ -33,6 +33,18 @@ Publication: https://pubs.rsc.org/en/content/articlehtml/2024/dd/d3dd00238a
 Source Code: https://github.com/ChEB-AI/python-chebifier
 License: GPL-3.0-only
 Incorporation Date: '2025-08-22'
+Last Packaging Date: '2025-08-28'
+Release: v1.0.0
 S3: https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos6tpo.zip
+DockerHub: https://hub.docker.com/r/ersiliaos/eos6tpo
+Docker Architecture:
+  - AMD64
+  - ARM64
 Model Size: 854.0
 Environment Size: 7657.0
+Image Size: 8548.18
+Computational Performance 1: 61.58
+Computational Performance 2: 56.07
+Computational Performance 3: 102.53
+Computational Performance 4: 875.55
+Computational Performance 5: -1.0

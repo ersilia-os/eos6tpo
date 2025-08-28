@@ -2,8 +2,7 @@
 
 Automated classification of chemical entities within the ChEBI ontology using a neuro-symbolic AI framework, which intelligently leverages the ontology’s structure itself to guide and shape the learning system.
 
-This model was incorporated on 2025-08-22.
-
+This model was incorporated on 2025-08-22.Last packaged on 2025-08-28.
 
 ## Information
 ### Identifiers
@@ -35,12 +34,19 @@ Below are the **Output Columns** of the model:
 ### Source and Deployment
 - **Source:** `Local`
 - **Source Type:** `External`
+- **DockerHub**: [https://hub.docker.com/r/ersiliaos/eos6tpo](https://hub.docker.com/r/ersiliaos/eos6tpo)
+- **Docker Architecture:** `AMD64`, `ARM64`
 - **S3 Storage**: [https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos6tpo.zip](https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos6tpo.zip)
 
 ### Resource Consumption
 - **Model Size (Mb):** `854`
 - **Environment Size (Mb):** `7657`
+- **Image Size (Mb):** `8548.18`
 
+**Computational Performance (seconds):**
+- 10 inputs: `61.58`
+- 100 inputs: `102.53`
+- 10000 inputs: `-1`
 
 ### References
 - **Source Code**: [https://github.com/ChEB-AI/python-chebifier](https://github.com/ChEB-AI/python-chebifier)

@@ -1,4 +1,4 @@
-input
+smiles
 C[C@H]1COc2c(N3CCN(C)CC3)c(F)cc3c(=O)c(C(=O)O)cn1c23
 Cc1nc2c(NCc3c(C)cccc3C)cc(cn2c1C)C(=O)NCCO
 OC[C@@H](O)CN1CCN(CC1)c1ccccc1

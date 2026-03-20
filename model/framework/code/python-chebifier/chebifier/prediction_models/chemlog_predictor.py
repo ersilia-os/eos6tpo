@@ -65,7 +65,7 @@ class ChemlogXMolecularEntityPredictor(ChemlogExtraPredictor):
         )
 
         super().__init__(model_name, **kwargs)
-        self.classifier = XMolecularEntityClassifier()
+        self.classifier = XMolecularEntityClassifier(self.chebi_graph)
 
 
 class ChemlogOrganoXCompoundPredictor(ChemlogExtraPredictor):
@@ -75,7 +75,7 @@ class ChemlogOrganoXCompoundPredictor(ChemlogExtraPredictor):
         )
 
         super().__init__(model_name, **kwargs)
-        self.classifier = OrganoXCompoundClassifier()
+        self.classifier = OrganoXCompoundClassifier(self.chebi_graph)
 
 
 class ChemlogPeptidesPredictor(BasePredictor):

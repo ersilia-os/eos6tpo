@@ -68,25 +68,25 @@ def predict(
         click.echo("No SMILES strings provided. Use --smiles or --smiles-file options.")
         return
 
-    # Make predictions
-    predictions = ensemble.predict_smiles_list(
-        smiles_list, use_confidence=use_confidence
-    )
+    # Make predictions in batches to avoid OOM with large inputs
+    BATCH_SIZE = 100
+    all_predictions = {}
+    for i in range(0, len(smiles_list), BATCH_SIZE):
+        batch = smiles_list[i:i + BATCH_SIZE]
+        batch_preds = ensemble.predict_smiles_list(batch, use_confidence=use_confidence)
+        for smi, pred in zip(batch, batch_preds):
+            all_predictions[smi] = pred
 
     if output:
         # save as json
         import json
 
         with open(output, "w") as f:
-            json.dump(
-                {smiles: pred for smiles, pred in zip(smiles_list, predictions)},
-                f,
-                indent=2,
-            )
+            json.dump(all_predictions, f, indent=2)
 
     else:
         # Print results
-        for i, (smiles, prediction) in enumerate(zip(smiles_list, predictions)):
+        for smiles, prediction in all_predictions.items():
             click.echo(f"Result for: {smiles}")
             if prediction:
                 click.echo(f"  Predicted classes: {', '.join(map(str, prediction))}")

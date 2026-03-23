@@ -28,8 +28,10 @@ with open(tmp_file, "w", newline="") as f:
     for s in smiles_list:
         writer.writerow([s])
 
-# change working directory before running the model
-os.chdir(os.path.join(root, "python-chebifier"))
+# change working directory to a writable location before running the model
+# (chemlog_extra writes relative path `data/chebi_v244/` from cwd at init time,
+#  which fails if cwd is inside a read-only container image)
+os.chdir("/tmp")
 
 # run the model
 predict(

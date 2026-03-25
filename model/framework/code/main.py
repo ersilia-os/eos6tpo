@@ -34,6 +34,24 @@ def _local_get_disjoint_files():
     return _orig_get_disjoint_files()
 _base_ensemble.get_disjoint_files = _local_get_disjoint_files
 
+# Patch ChEBILookupPredictor.get_smiles_lookup to use an absolute path in checkpoints
+# instead of a path relative to CWD (which breaks when CWD is /tmp).
+from chebifier.prediction_models.chebi_lookup import ChEBILookupPredictor as _ChEBILookupPredictor
+
+def _local_get_smiles_lookup(self_inner):
+    local = os.path.join(checkpoints_dir, "smiles_lookup.json")
+    if os.path.isfile(local):
+        print("Loading SMILES lookup from local checkpoints...")
+        with open(local, "r", encoding="utf-8") as f:
+            return json.load(f)
+    print("Building SMILES lookup (first run, may take a few minutes)...")
+    smiles_lookup = self_inner.build_smiles_lookup()
+    with open(local, "w", encoding="utf-8") as f:
+        json.dump(smiles_lookup, f, indent=4)
+    return smiles_lookup
+
+_ChEBILookupPredictor.get_smiles_lookup = _local_get_smiles_lookup
+
 from cli_adapted import predict
 
 # parse arguments

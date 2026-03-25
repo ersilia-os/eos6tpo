@@ -3,14 +3,12 @@ import importlib.resources
 import yaml
 
 
-
 def predict(
     ensemble_config,
     smiles,
     smiles_file,
     output,
     ensemble_type,
-    chebi_version,
     use_confidence,
     resolve_inconsistencies=True,
 ):
@@ -52,20 +50,17 @@ def predict(
     # Instantiate ensemble model
     ensemble = ENSEMBLES[ensemble_type](
         config,
-        chebi_version=chebi_version,
         resolve_inconsistencies=resolve_inconsistencies,
     )
-
 
     # Collect SMILES strings from arguments and/or file
     smiles_list = list(smiles)
     if smiles_file:
         with open(smiles_file, "r") as f:
-            # smiles_list.extend([line.strip() for line in f if line.strip()])
-            smiles_list.extend([line.strip() for line in f if line.strip() and line.strip() != 'input'])
+            smiles_list.extend([line.strip() for line in f if line.strip() and line.strip() != 'smiles'])
 
     if not smiles_list:
-        click.echo("No SMILES strings provided. Use --smiles or --smiles-file options.")
+        print("No SMILES strings provided. Use --smiles or --smiles-file options.")
         return
 
     # Make predictions in batches to avoid OOM with large inputs
@@ -78,17 +73,15 @@ def predict(
             all_predictions[smi] = pred
 
     if output:
-        # save as json
         import json
 
         with open(output, "w") as f:
             json.dump(all_predictions, f, indent=2)
 
     else:
-        # Print results
         for smiles, prediction in all_predictions.items():
-            click.echo(f"Result for: {smiles}")
+            print(f"Result for: {smiles}")
             if prediction:
-                click.echo(f"  Predicted classes: {', '.join(map(str, prediction))}")
+                print(f"  Predicted classes: {', '.join(map(str, prediction))}")
             else:
-                click.echo("  No predictions")
+                print("  No predictions")

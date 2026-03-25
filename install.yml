@@ -1,8 +1,10 @@
 python: "3.10"
 commands:
     - ["pip", "torch", "2.8.0"]
-    - ["pip", "git+https://github.com/ChEB-AI/python-chebai-graph.git"]
-    - ["pip", "git+https://github.com/ChEB-AI/chemlog-extra.git"]
+    - ["pip", "git+https://github.com/ChEB-AI/python-chebai.git@v1.0.3"]
+    - ["pip", "git+https://github.com/ChEB-AI/python-chebifier.git@v1.1.1"]
+    - ["pip", "git+https://github.com/ChEB-AI/python-chebai-graph.git@v1.0.0"]
+    - ["pip", "git+https://github.com/ChEB-AI/chemlog-extra.git@bad4c8072e"]
     - ["pip", "torch-geometric", "2.6.1", "-f", "https://data.pyg.org/whl/torch-2.8.0+cu128.html"]
     - ["pip", "torch-scatter", "2.1.2", "-f", "https://data.pyg.org/whl/torch-2.8.0+cu128.html"]
     - ["pip", "torch-sparse", "0.6.18", "-f", "https://data.pyg.org/whl/torch-2.8.0+cu128.html"]

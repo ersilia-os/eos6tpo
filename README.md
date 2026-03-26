@@ -2,7 +2,7 @@
 
 Automated classification of chemical entities within the ChEBI ontology using a neuro-symbolic AI framework, which intelligently leverages the ontology’s structure itself to guide and shape the learning system.
 
-This model was incorporated on 2025-08-22.Last packaged on 2026-03-25.
+This model was incorporated on 2025-08-22.Last packaged on 2026-03-26.
 
 ## Information
 ### Identifiers
@@ -41,11 +41,11 @@ Below are the **Output Columns** of the model:
 ### Resource Consumption
 - **Model Size (Mb):** `353`
 - **Environment Size (Mb):** `7679`
-- **Image Size (Mb):** `8075.43`
+- **Image Size (Mb):** `8075.53`
 
 **Computational Performance (seconds):**
-- 10 inputs: `137.31`
-- 100 inputs: `173.58`
+- 10 inputs: `146.23`
+- 100 inputs: `174.65`
 - 10000 inputs: `-1`
 
 ### References

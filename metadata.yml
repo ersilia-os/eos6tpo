@@ -35,7 +35,7 @@ License: GPL-3.0-only
 Contributor: arnaucoma24
 Incorporation Date: '2025-08-22'
 Last Packaging Date: '2026-03-26'
-Release: v2.0.0
+Release: v3.0.0
 S3: https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos6tpo.zip
 DockerHub: https://hub.docker.com/r/ersiliaos/eos6tpo
 Docker Architecture: AMD64

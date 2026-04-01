@@ -52,6 +52,37 @@ def _local_get_smiles_lookup(self_inner):
 
 _ChEBILookupPredictor.get_smiles_lookup = _local_get_smiles_lookup
 
+# Patch ChEBIData to use local chebi.obo instead of downloading from the internet,
+# and skip SDF-based molecular data processing (not needed for element classification).
+import shutil
+from chemlog.preprocessing.chebi_data import ChEBIData as _ChEBIData
+
+_orig_download_chebi = _ChEBIData.download_chebi
+def _local_download_chebi(self):
+    chebi_path = getattr(self, 'chebi_path', None)
+    if chebi_path is None:
+        chebi_path = os.path.join("data", f"chebi_v{self.chebi_version}", "chebi.obo")
+    if not os.path.isfile(chebi_path):
+        local = os.path.join(checkpoints_dir, "chebi.obo")
+        if os.path.isfile(local):
+            os.makedirs(os.path.dirname(os.path.abspath(chebi_path)), exist_ok=True)
+            shutil.copy2(local, chebi_path)
+            print("Using local chebi.obo from checkpoints")
+            return
+    _orig_download_chebi(self)
+_ChEBIData.download_chebi = _local_download_chebi
+
+_orig_process_data = _ChEBIData.process_data
+def _local_process_data(self):
+    # by_element_classification only uses self.chebi (set by process_chebi),
+    # not the SDF-derived molecular data. Skip if processed.pkl not already cached.
+    processed_path = getattr(self, 'processed_path', None)
+    if processed_path and os.path.isfile(str(processed_path)):
+        return _orig_process_data(self)
+    print("Skipping ChEBI molecular data processing (SDF not bundled, not needed for element classification)")
+    return None
+_ChEBIData.process_data = _local_process_data
+
 from cli_adapted import predict
 
 # parse arguments

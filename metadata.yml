@@ -39,8 +39,8 @@ Release: v3.0.0
 S3: https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos6tpo.zip
 DockerHub: https://hub.docker.com/r/ersiliaos/eos6tpo
 Docker Architecture: AMD64
-Model Size: 353.0
-Environment Size: 7679.0
+Model Size: 837.0
+Environment Size: 7676.0
 Image Size: 8075.53
 Computational Performance 1: 146.23
 Computational Performance 2: 133.33

@@ -13,13 +13,37 @@ checkpoints_dir = os.path.abspath(os.path.join(root, "..", "..", "checkpoints"))
 # Patch chebifier to load chebi_graph.pkl and disjoint files from local checkpoints
 # instead of HuggingFace. Must happen before cli_adapted is imported (which triggers
 # base_ensemble import).
+import networkx as _nx
 import chebifier.ensemble.base_ensemble as _base_ensemble
 _orig_load_chebi_graph = _base_ensemble.load_chebi_graph
+
+
+class _RobustDiGraph(_nx.DiGraph):
+    """DiGraph that returns an empty iterator for unknown nodes instead of raising."""
+
+    def successors(self, n):
+        try:
+            return super().successors(n)
+        except _nx.NetworkXError:
+            return iter([])
+
+    def predecessors(self, n):
+        try:
+            return super().predecessors(n)
+        except _nx.NetworkXError:
+            return iter([])
+
+
 def _local_load_chebi_graph(filename=None):
     local = os.path.join(checkpoints_dir, "chebi_graph.pkl")
     if filename is None and os.path.isfile(local):
         print("Loading ChEBI graph from local checkpoints...")
-        return pickle.load(open(local, "rb"))
+        graph = pickle.load(open(local, "rb"))
+        # Upgrade to RobustDiGraph so unknown ChEBI IDs (added after this
+        # graph snapshot was created) don't crash inconsistency resolution.
+        robust = _RobustDiGraph(graph)
+        robust.update(graph)
+        return robust
     return _orig_load_chebi_graph(filename)
 _base_ensemble.load_chebi_graph = _local_load_chebi_graph
 

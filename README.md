@@ -50,7 +50,7 @@ Below are the **Output Columns** of the model:
 
 ### References
 - **Source Code**: [https://github.com/ChEB-AI/python-chebifier](https://github.com/ChEB-AI/python-chebifier)
-- **Publication**: [https://pubs.rsc.org/en/content/articlehtml/2024/dd/d3dd00238a](https://pubs.rsc.org/en/content/articlehtml/2024/dd/d3dd00238a)
+- **Publication**: [https://doi.org/10.1039/D3DD00238A](https://doi.org/10.1039/D3DD00238A)
 - **Publication Type:** `Peer reviewed`
 - **Publication Year:** `2025`
 - **Ersilia Contributor:** [arnaucoma24](https://github.com/arnaucoma24)

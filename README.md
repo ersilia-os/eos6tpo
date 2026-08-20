@@ -1,6 +1,6 @@
 # Neuro-Symbolic AI for Automated Chemical Classification in the ChEBI Ontology
 
-Automated classification of chemical entities within the ChEBI ontology using a neuro-symbolic AI framework, which intelligently leverages the ontology’s structure itself to guide and shape the learning system.
+Places a molecule within the ChEBI ontology, returning the semantic parent classes it belongs to as a list. Glauer and colleagues built Chebifier on a neuro-symbolic approach that uses the ontology's own axioms during training, so predictions respect the class hierarchy and the system can absorb new classes as ChEBI grows rather than needing to be rebuilt. Assignments are inferred from structure, so they express ontological classification rather than any measured property.
 
 This model was incorporated on 2025-08-22.Last packaged on 2026-04-14.
 
@@ -23,7 +23,7 @@ This model was incorporated on 2025-08-22.Last packaged on 2026-04-14.
 ### Output
 - **Output Dimension:** `1`
 - **Output Consistency:** `Fixed`
-- **Interpretation:** The output corresponds to a list of semicolon-separated ChEBI predicted parents
+- **Interpretation:** Semicolon-separated list of predicted ChEBI ontology parent classes for the molecule.
 
 Below are the **Output Columns** of the model:
 | Name | Type | Direction | Description |
@@ -52,11 +52,11 @@ Below are the **Output Columns** of the model:
 - **Source Code**: [https://github.com/ChEB-AI/python-chebifier](https://github.com/ChEB-AI/python-chebifier)
 - **Publication**: [https://doi.org/10.1039/D3DD00238A](https://doi.org/10.1039/D3DD00238A)
 - **Publication Type:** `Peer reviewed`
-- **Publication Year:** `2025`
+- **Publication Year:** `2024`
 - **Ersilia Contributor:** [arnaucoma24](https://github.com/arnaucoma24)
 
 ### License
-This package is licensed under a [GPL-3.0](https://github.com/ersilia-os/ersilia/blob/master/LICENSE) license. The model contained within this package is licensed under a [GPL-3.0-only](LICENSE) license.
+This package is licensed under a [GPL-3.0](https://github.com/ersilia-os/ersilia/blob/master/LICENSE) license. The model contained within this package is licensed under a [MIT](LICENSE) license.
 
 **Notice**: Ersilia grants access to models _as is_, directly from the original authors, please refer to the original code repository and/or publication if you use the model in your research.
 

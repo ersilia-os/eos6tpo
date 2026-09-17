@@ -1,7 +1,8 @@
 Identifier: eos6tpo
 Slug: chebifier
 Status: Ready
-Title: Neuro-Symbolic AI for Automated Chemical Classification in the ChEBI Ontology
+Title: Neuro-Symbolic AI for Automated Chemical Classification in the ChEBI 
+  Ontology
 Description: Automated classification of chemical entities within the ChEBI 
   ontology using a neuro-symbolic AI framework, which intelligently leverages 
   the ontology’s structure itself to guide and shape the learning system.

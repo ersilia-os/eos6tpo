@@ -34,16 +34,18 @@ Source Code: https://github.com/ChEB-AI/python-chebifier
 License: MIT
 Contributor: arnaucoma24
 Incorporation Date: '2025-08-22'
-Last Packaging Date: '2026-04-14'
+Last Packaging Date: '2026-09-17'
 Release: v3.0.0
 S3: https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos6tpo.zip
 DockerHub: https://hub.docker.com/r/ersiliaos/eos6tpo
-Docker Architecture: AMD64
+Docker Architecture:
+  - AMD64
+  - ARM64
 Model Size: 595.0
 Environment Size: 7728.0
-Image Size: 8315.28
-Computational Performance 1: 93.44
-Computational Performance 2: 82.42
-Computational Performance 3: 129.38
-Computational Performance 4: 909.69
+Image Size: 8353.59
+Computational Performance 1: 81.79
+Computational Performance 2: 75.68
+Computational Performance 3: 118.75
+Computational Performance 4: 898.49
 Computational Performance 5: -1.0

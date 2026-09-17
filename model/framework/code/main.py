@@ -152,14 +152,14 @@ local_ensemble_config = {
             "chebai_graph.preprocessing.properties.RDKit2DNormalized",
         ],
     },
-    "chemlog_peptides": {"type": "chemlog_peptides"},
-    "chemlog_element": {"type": "chemlog_element"},
-    "chemlog_organox": {"type": "chemlog_organox"},
+    "chemlog_peptides": {"type": "chemlog_peptides", "model_weight": 100},
+    "chemlog_element": {"type": "chemlog_element", "model_weight": 100},
+    "chemlog_organox": {"type": "chemlog_organox", "model_weight": 100},
     "c3p": {
         "type": "c3p",
         "classwise_weights_path": os.path.join(checkpoints_dir, "c3p_trust.json"),
     },
-    "chebi_lookup": {"type": "chebi_lookup"},
+    "chebi_lookup": {"type": "chebi_lookup", "model_weight": 10},
 }
 local_ensemble_config_path = "/tmp/ensemble_config_local.yml"
 with open(local_ensemble_config_path, "w") as f:

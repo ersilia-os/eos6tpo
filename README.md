@@ -1,6 +1,6 @@
 # Neuro-Symbolic AI for Automated Chemical Classification in the ChEBI Ontology
 
-Places a molecule within the ChEBI ontology, returning the semantic parent classes it belongs to as a list. Glauer and colleagues built Chebifier on a neuro-symbolic approach that uses the ontology's own axioms during training, so predictions respect the class hierarchy and the system can absorb new classes as ChEBI grows rather than needing to be rebuilt. Assignments are inferred from structure, so they express ontological classification rather than any measured property.
+Assigns a molecule its parent classes in ChEBI, the reference ontology for biologically interesting chemistry, returning them as one semicolon-separated list. Glauer, Hastings and colleagues built Chebifier on a neuro-symbolic approach in which the ontology's own structure shapes the learning system, so the classifier can keep pace as ChEBI grows instead of being rebuilt by hand. Ersilia serves a later release than the published one, an ensemble that combines the transformer with a graph network, rule-based classifiers and a ChEBI lookup, reconciled by weighted majority vote.
 
 This model was incorporated on 2025-08-22.Last packaged on 2026-09-17.
 

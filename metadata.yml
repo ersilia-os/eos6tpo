@@ -3,14 +3,14 @@ Slug: chebifier
 Status: Ready
 Title: Neuro-Symbolic AI for Automated Chemical Classification in the ChEBI 
   Ontology
-Description: Assigns a molecule its parent classes in ChEBI, the reference ontology
-  for biologically interesting chemistry, returning them as one semicolon-separated
-  list. Glauer, Hastings and colleagues built Chebifier on a neuro-symbolic approach
-  in which the ontology's own structure shapes the learning system, so the classifier
-  can keep pace as ChEBI grows instead of being rebuilt by hand. Ersilia serves a
-  later release than the published one, an ensemble that combines the transformer
-  with a graph network, rule-based classifiers and a ChEBI lookup, reconciled by weighted
-  majority vote.
+Description: Assigns a molecule its parent classes in ChEBI, the reference 
+  ontology for biologically interesting chemistry, returning them as one 
+  semicolon-separated list. Glauer, Hastings and colleagues built Chebifier on a
+  neuro-symbolic approach in which the ontologys own structure shapes the 
+  learning system, so the classifier can keep pace as ChEBI grows instead of 
+  being rebuilt by hand. Ersilia serves a later release than the published one, 
+  an ensemble that combines the transformer with a graph network, rule-based 
+  classifiers and a ChEBI lookup, reconciled by weighted majority vote.
 Deployment:
   - Local
 Source: Local
@@ -24,8 +24,8 @@ Output:
   - Text
 Output Dimension: 1
 Output Consistency: Fixed
-Interpretation: Semicolon-separated list of predicted ChEBI ontology parent classes
-  for the molecule.
+Interpretation: Semicolon-separated list of predicted ChEBI ontology parent 
+  classes for the molecule.
 Tag:
   - Chemical notation
 Biomedical Area:
@@ -40,7 +40,7 @@ License: MIT
 Contributor: arnaucoma24
 Incorporation Date: '2025-08-22'
 Last Packaging Date: '2026-09-17'
-Release: v4.0.0
+Release: v4.0.1
 S3: https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos6tpo.zip
 DockerHub: https://hub.docker.com/r/ersiliaos/eos6tpo
 Docker Architecture:

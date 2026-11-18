@@ -1,8 +1,9 @@
 # Neuro-Symbolic AI for Automated Chemical Classification in the ChEBI Ontology
 
-Assigns a molecule its parent classes in ChEBI, the reference ontology for biologically interesting chemistry, returning them as one semicolon-separated list. Glauer, Hastings and colleagues built Chebifier on a neuro-symbolic approach in which the ontology's own structure shapes the learning system, so the classifier can keep pace as ChEBI grows instead of being rebuilt by hand. Ersilia serves a later release than the published one, an ensemble that combines the transformer with a graph network, rule-based classifiers and a ChEBI lookup, reconciled by weighted majority vote.
+Assigns a molecule its parent classes in ChEBI, the reference ontology for biologically interesting chemistry, returning them as one semicolon-separated list. Glauer, Hastings and colleagues built Chebifier on a neuro-symbolic approach in which the ontologys own structure shapes the learning system, so the classifier can keep pace as ChEBI grows instead of being rebuilt by hand. Ersilia serves a later release than the published one, an ensemble that combines the transformer with a graph network, rule-based classifiers and a ChEBI lookup, reconciled by weighted majority vote.
 
-This model was incorporated on 2025-08-22.Last packaged on 2026-09-17.
+This model was incorporated on 2025-08-22.
+Last packaged on 2026-09-17.
 
 ## Information
 ### Identifiers
@@ -37,6 +38,7 @@ Below are the **Output Columns** of the model:
 - **DockerHub**: [https://hub.docker.com/r/ersiliaos/eos6tpo](https://hub.docker.com/r/ersiliaos/eos6tpo)
 - **Docker Architecture:** `AMD64`, `ARM64`
 - **S3 Storage**: [https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos6tpo.zip](https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos6tpo.zip)
+- **Apptainer**: [https://models-sif.s3.eu-north-1.amazonaws.com/eos6tpo_v4.sif](https://models-sif.s3.eu-north-1.amazonaws.com/eos6tpo_v4.sif)
 
 ### Resource Consumption
 - **Model Size (Mb):** `595`

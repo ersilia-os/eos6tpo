@@ -131,4 +131,3 @@ dmypy.json
 
 #eosvc managed
 model/checkpoints/*
-model/framework/fit/*
